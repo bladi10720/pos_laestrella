@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Producto</title>
+</head>
+<body>
+    <h1>Buscar producto</h1>
+    <form method="POST" action="/buscar">
+        <label for="codigo">Código del producto:</label>
+        <input type="text" name="codigo" id="codigo" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if producto %}
+        <h2>Producto encontrado:</h2>
+        <ul>
+            <li>Código: {{ producto[0] }}</li>
+            <li>Nombre: {{ producto[1] }}</li>
+            <li>Precio: {{ producto[2] }}</li>
+        </ul>
+    {% elif mensaje %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
+</body>
+</html>
